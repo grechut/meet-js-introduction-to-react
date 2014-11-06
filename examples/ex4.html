@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/jsx">
+
+      var Reception = React.createClass({
+
+          getInitialState: function() {
+            return {
+              names: ["Tomek", "Jan", "Ewa"]
+            };
+          },
+
+          changeNames: function() {
+            this.setState({
+              names: ["Szymon", "Wojtek", "Ania"]
+            });
+          },
+
+          render: function() {
+              var names = this.state.names;
+              return <div>
+                  <Card name={names[0]} />
+                  <Card name={names[1]} />
+                  <Card name={names[2]} />
+                  <button onClick={this.changeNames}>Change names</button>
+                </div>;
+          }
+
+          // render: function() {
+          //     var cards = this.state.names.map(function(name){
+          //       return <Card name={name} />
+          //     });
+
+          //     return <div>
+          //         {cards}
+          //         <button onClick={this.changeNames}>Change names</button>
+          //       </div>;
+          // }
+      });
+
+      var Card = React.createClass({
+          render: function() {
+              var title = this.props.name[this.props.name.length-1] === 'a' ? "Ms" : "Mr";
+
+              return <div>
+                  <h1>Hello {title + " " + this.props.name}!</h1>
+                </div>;
+          }
+      });
+       
+      React.render(<Reception/>, document.getElementById("app"));
+    </script>
+  </body>
+</html>

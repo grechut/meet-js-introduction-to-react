@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/jsx">
+      var ClickCounter = React.createClass({
+
+          getInitialState: function() {
+            return {
+              clickCount: 0
+            };
+          },
+
+          increment: function() {
+            this.setState({
+              clickCount: this.state.clickCount + 1
+            });
+          },
+
+          render: function() {
+              return <div>
+                <p>Clicks: {this.state.clickCount}</p>
+                <button onClick={this.increment}>Increment</button>
+              </div>;
+          }
+      });
+       
+      React.render(<ClickCounter/>, document.getElementById("app"));
+    </script>
+  </body>
+</html>

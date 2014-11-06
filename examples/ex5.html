@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/jsx">
+      var DateViewer = React.createClass({
+
+          render: function() {
+              return <h1>{Date()}</h1>;
+          }
+      });
+       
+      window.DateViewer = React.render(<DateViewer/>, document.getElementById("app"));
+
+      // call window.DateViewer.forceUpdate() when you want to re-render the component
+    </script>
+  </body>
+</html>

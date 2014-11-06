@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./lib/react.js"></script>
+    <script src="./lib/JSXTransformer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
+    <style>
+      .item {
+        height: 200px;
+        background-color: #dddddd;
+        margin: 20px 20px;
+        padding-top: 20px;
+      }
+
+      .mobile {
+        width: 400px;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="desktop"></div>
+    <hr/>
+    <div id="mobile"></div>
+
+    <script type="text/jsx">
+      var Header = React.createClass({
+          render: function() {
+              return <div className="item">
+                  <h1>Header</h1>
+                </div>;
+          }
+      });
+
+      var Section = React.createClass({
+          render: function() {
+              return <div className="item">Section</div>;
+          }
+      });
+
+      var Footer = React.createClass({
+          render: function() {
+              return <div className="item">Footer</div>;
+          }
+      });
+
+      var Desktop = React.createClass({
+          render: function() {
+              return <div>
+                  <Header/>
+                  <div className="row">
+                    <div className="col-md-4"><Section/></div>
+                    <div className="col-md-4"><Section/></div>
+                    <div className="col-md-4"><Section/></div>
+                  </div>
+                  <Footer/>
+                </div>;
+          }
+      });
+
+      var Mobile = React.createClass({
+          render: function() {
+              return <div className="mobile">
+                  <Header/>
+                  <Section/>
+                </div>;
+          }
+      });
+
+      var App = React.createClass({
+          render: function() {
+            if (window.innerWidth > 600) {
+              return <Desktop/>;
+            } else {
+              return <Mobile/>;
+            }
+          }
+      })
+       
+      React.render(<Desktop/>, document.getElementById("desktop"));
+      React.render(<Mobile/>, document.getElementById("mobile"));
+    </script>
+  </body>
+</html>
