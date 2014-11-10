@@ -3,6 +3,7 @@
   <head>
     <script src="./lib/react.js"></script>
     <script src="./lib/JSXTransformer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
   </head>
   <body>
     <div id="app"></div>
@@ -46,10 +47,9 @@
 
       var Card = React.createClass({
           render: function() {
-              var title = this.props.name[this.props.name.length-1] === 'a' ? "Ms" : "Mr";
-
+              
               return <div>
-                  <h1>Hello {title + " " + this.props.name}!</h1>
+                  <h1>Hello {this.props.name}!</h1>
                 </div>;
           }
       });

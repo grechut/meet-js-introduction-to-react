@@ -22,9 +22,10 @@
     </style>
   </head>
   <body>
-    
+    <h2>Here desktop: </h2>
     <div id="desktop"></div>
     <hr/>
+    <h2>Here mobile: </h2>
     <div id="mobile"></div>
 
     <script type="text/jsx">
@@ -53,9 +54,15 @@
               return <div>
                   <Header/>
                   <div className="row">
-                    <div className="col-md-4"><Section/></div>
-                    <div className="col-md-4"><Section/></div>
-                    <div className="col-md-4"><Section/></div>
+                    <div className="col-md-4">
+                      <Section/>
+                    </div>
+                    <div className="col-md-4">
+                      <Section/>
+                    </div>
+                    <div className="col-md-4">
+                      <Section/>
+                    </div>
                   </div>
                   <Footer/>
                 </div>;
@@ -71,15 +78,6 @@
           }
       });
 
-      var App = React.createClass({
-          render: function() {
-            if (window.innerWidth > 600) {
-              return <Desktop/>;
-            } else {
-              return <Mobile/>;
-            }
-          }
-      })
        
       React.render(<Desktop/>, document.getElementById("desktop"));
       React.render(<Mobile/>, document.getElementById("mobile"));

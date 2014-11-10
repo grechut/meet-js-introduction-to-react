@@ -3,20 +3,23 @@
   <head>
     <script src="./lib/react.js"></script>
     <script src="./lib/JSXTransformer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
   </head>
   <body>
     <div id="app"></div>
     <script type="text/jsx">
-      var DateViewer = React.createClass({
+      var MeetJsDateViewer = React.createClass({
 
           render: function() {
-              return <h1>{Date()}</h1>;
+              return <div>
+                  <h1>{Date()}</h1>
+                </div>;
           }
       });
        
-      window.DateViewer = React.render(<DateViewer/>, document.getElementById("app"));
+      window.MeetJsDateViewer = React.render(<MeetJsDateViewer/>, document.getElementById("app"));
 
-      // call window.DateViewer.forceUpdate() when you want to re-render the component
+      // call window.MeetJsDateViewer.forceUpdate() when you want to re-render the component
     </script>
   </body>
 </html>
